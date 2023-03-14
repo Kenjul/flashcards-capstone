@@ -15,7 +15,7 @@ export default function Study() {
         const deckFromAPI = await readDeck(deckId, abortController.signal);
         setDeck(deckFromAPI);
       } catch (e) {
-        setError(e);
+        console.log(e);
       }
     }
     loadDeck();
