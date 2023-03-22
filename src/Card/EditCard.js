@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { updateCard, readDeck, readCard } from "../utils/api";
+import Form from "./Form";
 
 export default function EditCard() {
   const initialCardState = {
@@ -51,53 +52,20 @@ export default function EditCard() {
     });
   }
 
+  const title = `Edit Card ${card.id}`;
+  const buttonOne = "Cancel";
+  const buttonTwo = "Submit";
+
   return (
-    <div>
-      {/* this div is for nav bar */}
-      <div>
-        <nav>
-          <ol>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>{deck.name}</li>
-            <li>EditCard {card.id}</li>
-          </ol>
-        </nav>
-      </div>
-      {/* this div is for the form tag */}
-      <div>
-        <h1>EditCard {card.id}</h1>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Front</label>
-            <textarea
-              id="front"
-              name="front"
-              placeholder={card.front}
-              onChange={handleChange}
-              value={card.front}
-            ></textarea>
-          </div>
-          <div>
-            <label>Back</label>
-            <textarea
-              id="back"
-              name="back"
-              placeholder={card.back}
-              onChange={handleChange}
-              value={card.back}
-            ></textarea>
-          </div>
-          <button
-            type="cancel"
-            onClick={() => history.push(`/decks/${params.deckId}`)}
-          >
-            Done
-          </button>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    </div>
+    <Form
+      card={card}
+      deck={deck}
+      handleSubmit={handleSubmit}
+      handleChange={handleChange}
+      params={params}
+      title={title}
+      buttonOne={buttonOne}
+      buttonTwo={buttonTwo}
+    />
   );
 }

@@ -1,0 +1,18 @@
+.jumbotron{
+
+    background-color: #417659;
+}
+.btn-primary{
+    background-color:#417659;
+    border-color:#417659;
+    }
+
+.btn-secondary{
+    background-color:#17052e;
+    border-color:#17052e;
+}
+
+.btn-danger{
+    background-color:#5f4b24;
+    border-color:#5f4b24;
+}
